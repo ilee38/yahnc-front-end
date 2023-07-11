@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,18 +7,20 @@ import NewsRequest from './requests/NewsRequest';
 
 const Home = () => {
 
-   const [newsData, setNewsData] = useState([{title: "", date: ""}]);
+   const [newsData, setNewsData] = useState([]);
 
    useEffect(() => {
       getNews()
-   }, [newsData]);
+   }, []);
 
    const getNews = async () => {
       const newsRequest = new NewsRequest();
-      const response = await newsRequest.getNews();
+      let response = await newsRequest.getNews();
 
-      if (response.status === 'ok') {
-         setNewsData(response.data);
+      if (response !== undefined) {
+         if (response.status === 200) {
+            setNewsData(response.data)
+         }
       }
    };
 
