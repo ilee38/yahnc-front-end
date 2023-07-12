@@ -45,3 +45,8 @@
   font-size: small;
   color: #999999;
 }
+
+a {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
