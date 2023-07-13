@@ -24,9 +24,10 @@ const NewsStack = ({newsData}: Args) => {
       return cutoff !== -1 ? url.substring(0, cutoff + 8) : url;
    }
 
-   const getElapsedTime = (storyTimeStamp: number): string=> {
+   const getElapsedTime = (storyTimeStamp: number): string => {
       let elapsedTimeValue;
       let elapsedTimeUnit;
+
       // The story timestamp is given in Unix time, so we use Unix time to calculate elapsed time
       // Dividing by 1000 converts to Unix time in seconds
       const currentUnixTime = Math.floor(Date.now() / 1000);
@@ -48,10 +49,11 @@ const NewsStack = ({newsData}: Args) => {
             <div></div>
             {newsData.map((item, idx) => (
                <div key={idx}>
-                  {idx + 1}. <a href={item.url}>{item.title}</a> <a href={item.url} className='Story-link'>({cleanUrl(item.url)})</a>
+                  <div className='Story-list-number'>{idx + 1}. <a href={item.url}>{item.title}</a> <a href={item.url} className='Story-link'>({cleanUrl(item.url)})</a></div>
                   <div className='Story-link'>{item.score} points by {item.by} {getElapsedTime(item.time)} ago.</div>
                </div>
             ))}
+            <div><button>More</button></div>
          </Stack>
    );
 };

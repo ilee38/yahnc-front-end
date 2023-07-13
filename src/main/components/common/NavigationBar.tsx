@@ -12,7 +12,7 @@ const NavigationBar = () => {
         <Col xs={10}>
           <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
             <Container fluid>
-              <Navbar.Brand href="#home">Hacker News Reader</Navbar.Brand>
+              <Navbar.Brand href="#home">Hacker News Client</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
